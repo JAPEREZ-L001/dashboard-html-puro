@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario + Dashboard - HTML Puro</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #f4f4f8;
+        }
+        h1 { color: #333; }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .panel {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        h2 { margin-top: 0; color: #555; font-size: 1.1rem; }
+        label { display: block; margin: 0.75rem 0 0.25rem; font-weight: 500; }
+        select, button {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background: #4a6fa5;
+            color: white;
+            border: none;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+        button:hover { background: #3a5a8a; }
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .nota {
+            background: #fff8dc;
+            border-left: 4px solid #daa520;
+            padding: 0.75rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario → Dashboard (HTML puro)</h1>
+    <p>Demo: comunicación entre dos páginas usando <strong>solo HTML</strong>, método <strong>GET</strong>, sin JavaScript ni backend.</p>
+
+    <div class="container">
+        <div class="panel">
+            <h2>Formulario</h2>
+            <form action="dashboard.html" method="GET" target="dashboard-frame">
+                <label for="nombre">Nombre:</label>
+                <select name="nombre" id="nombre">
+                    <option value="ana">Ana</option>
+                    <option value="carlos">Carlos</option>
+                    <option value="daniela">Daniela</option>
+                    <option value="josue">Josué</option>
+                </select>
+
+                <label for="rol">Rol:</label>
+                <select name="rol" id="rol">
+                    <option value="estudiante">Estudiante</option>
+                    <option value="docente">Docente</option>
+                    <option value="admin">Administrador</option>
+                </select>
+
+                <label for="depto">Departamento:</label>
+                <select name="depto" id="depto">
+                    <option value="sistemas">Sistemas</option>
+                    <option value="redes">Redes</option>
+                    <option value="ciberseguridad">Ciberseguridad</option>
+                </select>
+
+                <button type="submit">Enviar al Dashboard →</button>
+            </form>
+
+            <div class="nota">
+                <strong>Truco:</strong> el form usa <code>method="GET"</code> y
+                <code>target="dashboard-frame"</code>, así carga el resultado
+                dentro del iframe pasando los datos en la URL como
+                <code>?nombre=…&amp;rol=…</code>.
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2>Dashboard (iframe)</h2>
+            <iframe name="dashboard-frame" src="dashboard.html"></iframe>
+            <div class="nota">
+                Fíjate en la URL del iframe al enviar: contiene los parámetros
+                enviados por GET. Sin JS/backend, el HTML no puede "leer" esos
+                parámetros para renderizarlos dinámicamente — por eso se
+                usan páginas estáticas predefinidas (ver README).
+            </div>
+        </div>
+    </div>
+</body>
+</html>
