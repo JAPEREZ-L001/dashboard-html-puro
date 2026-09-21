@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            padding: 1.5rem;
+            background: #fafafa;
+            color: #333;
+        }
+        h2 { color: #4a6fa5; margin-top: 0; }
+        .card {
+            background: white;
+            border-radius: 6px;
+            padding: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .info {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 1rem;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Dashboard</h2>
+        <p>Los datos enviados están en la URL de esta página (mira la barra o el <code>src</code> del iframe).</p>
+        <p class="info">
+            Sin JavaScript, el HTML puro no puede parsear <code>window.location.search</code>
+            para mostrarlos como texto renderizado. La URL misma <em>es</em> el mensaje.
+        </p>
+        <p class="info">
+            <strong>Prueba:</strong> abre la consola del navegador (F12) → pestaña "Elements" →
+            selecciona el iframe → verás el atributo <code>src</code> con los parámetros GET.
+        </p>
+    </div>
+</body>
+</html>
